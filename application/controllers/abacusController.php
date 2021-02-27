@@ -18,16 +18,17 @@ class AbacusController extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	
 	public function index()
 	{
 		$this->load->helper('url');
 		$this->load->view('welcome_message');
 	}
     public function TEST() {
+        
 		$this->load->helper('xml');
 		$this->load->library('xmlrpc');
-	$this->load->library('xmlrpcs');
-        
+		$this->load->library('xmlrpcs');
 	// $abacusXml='<Application>DEBI</Application>';
 $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 		<AbaConnectContainer>
@@ -79,15 +80,70 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 		</AbaConnectContainer>';
 
 	$abacusXmls = simplexml_load_string($abacusXml);
-	$json = json_encode($abacusXmls);
-	// $arrays = json_decode($json,TRUE);
+	$json = json_encode($abacusXmls);	
 	echo $json;
 	return $json;
-
-        
-	
        
         
 	}
+	public function TEST2() {
+		$this->load->helper('xml');
+		$this->load->library('xmlrpc');
+		$this->load->library('xmlrpcs');
+        $jsonString='{
+			"AddressLine1":"123 Fakest St",
+			"Age":"56",
+			"AlertShowWhenDisplayingPatientDetails":"False",
+			"AlertShowWhenEnteringEncounters":"False",
+			"AlertShowWhenPostingPayments":"False",
+			"AlertShowWhenPreparingPatientStatements":"False",
+			"AlertShowWhenSchedulingAppointments":"False",
+			"AlertShowWhenViewingClaimDetails":"False",
+			"City":"Cherry Hill",
+			"CollectionCategoryName":"Current ",
+			"CreatedDate":"2/5/2021 6:48:10 AM",
+			"DOB":"01/01/1965",
+			"EmailAddress":"testing@gmail.com",
+			"FirstName":"OMAR TEST",
+			"Gender":"M",
+			"GuarantorDifferentThanPatient":"False",
+			"ID":"01",
+			"LastAppointmentDate":"2/9/2021 7:00:00 AM",
+			"LastModifiedDate":"2/5/2021 6:48:10 AM",
+			"LastName":"TESTER",
+			"MobilePhone":"(856) 454-8794",
+			"PatientFullName":"OMAR TEST TESTER",
+			"PracticeId":"3",
+			"PracticeName":"Sandbox",
+			"State":"NJ",
+			"StatementNote":"",
+			"Suffix":"",
+			"TotalBalance":"",
+			"WorkPhone":"",
+			"WorkPhoneExt":"",
+			"ZipCode":"08002"
+		 }';
+		$json= json_decode($jsonString, true);
+		function array2xml($json, $xml = false){
+			if($xml === false){
+				$xml = new SimpleXMLElement('<root/>');
+			}
+			foreach($json as $key => $value){
+				if(is_array($value)){
+					array2xml($value, $xml->addChild($key));
+				}else{
+					$xml->addChild($key, $value);
+				}
+			}
+			return $xml->asXML();
+		}
+		
+		
+		header('Content-type: text/xml');
+		print array2xml($json);
+        return $json;
+        
+	
 
+    }
 }
