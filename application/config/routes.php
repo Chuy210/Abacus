@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['TEST'] = 'AbacusController/TEST';
 $route['TEST2'] = 'AbacusController/TEST2';
+$route['TEST3'] = 'AbacusController/TEST3';
 // $route['GetPatients']['GET'] = 'KareoController/GetPatients';
 // $route['GetAppointments']['GET'] = 'KareoController/GetAppointments';
 // $route['CreateAppointment']['POST'] = 'KareoController/CreateAppointment';
