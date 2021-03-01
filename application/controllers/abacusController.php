@@ -146,7 +146,8 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 		$json= json_decode($jsonString, true);
 		function array2xml($json, $xml = false){
 			if($xml === false){
-				$xml = new SimpleXMLElement('<AbaConnectContainer/>');
+				$xml = new SimpleXMLElement('<?xml version="1.0"?><AbaConnectContainer></AbaConnectContainer>');
+			
 			}
 			foreach($json as $key => $value){
 				if(is_array($value)){
@@ -157,7 +158,6 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 			}
 			return $xml->asXML();
 		}
-		
 		
 		header('Content-type: text/xml');
 		print array2xml($json);
@@ -168,64 +168,93 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
     }
 	public function TEST3() {
         $jsonString='{
-			"AddressLine1":"123 Fakest St",
-			"Age":"56",
-			"AlertShowWhenDisplayingPatientDetails":"False",
-			"AlertShowWhenEnteringEncounters":"False",
-			"AlertShowWhenPostingPayments":"False",
-			"AlertShowWhenPreparingPatientStatements":"False",
-			"AlertShowWhenSchedulingAppointments":"False",
-			"AlertShowWhenViewingClaimDetails":"False",
-			"City":"Cherry Hill",
-			"CollectionCategoryName":"Current ",
-			"CreatedDate":"2/5/2021 6:48:10 AM",
-			"DOB":"01/01/1965",
-			"EmailAddress":"testing@gmail.com",
-			"FirstName":"OMAR TEST",
-			"Gender":"M",
-			"GuarantorDifferentThanPatient":"False",
-			"ID":"01",
-			"LastAppointmentDate":"2/9/2021 7:00:00 AM",
-			"LastModifiedDate":"2/5/2021 6:48:10 AM",
-			"LastName":"TESTER",
-			"MobilePhone":{"Parameter":{
-				"Application":"DEBI",
-				"Id":"Zahlungen",
-				"MapId":"fidevision",
-				"Version":"2020.00"
-			 }
-			},
-			"PatientFullName":"OMAR TEST TESTER",
-			"PracticeId":"3",
-			"PracticeName":"Sandbox",
-			"State":"NJ",
-			"StatementNote":"",
-			"Suffix":"",
-			"TotalBalance":"",
-			"WorkPhone":"",
-			"WorkPhoneExt":"",
-			"ZipCode":"08002"
+			"TaskCount":"1",
+			"Task":{
+			   "Parameter":{
+				  "Application":"DEBI",
+				  "Id":"Zahlungen",
+				  "MapId":"fidevision",
+				  "Version":"2020.00"
+			   },
+			   "Transaction":[
+				  {
+					 "Payment":{
+						"@attributes":{
+						   "mode":"Save"
+						},
+						"PaymentFields":{
+						   "@attributes":{
+							  "mode":"Save"
+						   },
+						   "DocumentNumber":"8014",
+						   "PaymentCode":"Z",
+						   "Currency":"CHF",
+						   "PaymentAmount":"114404.35",
+						   "DocumentAmount":"114404.35",
+						   "DocumentOI":"0.00"
+						}
+					 }
+				  },
+				  {
+					 "Payment":{
+						"@attributes":{
+						   "mode":"Save"
+						},
+						"PaymentFields":{
+						   "@attributes":{
+							  "mode":"Save"
+						   },
+						   "DocumentNumber":"8015",
+						   "PaymentCode":"Z",
+						   "Currency":"CHF",
+						   "PaymentAmount":"730.20",
+						   "DocumentAmount":"730.20",
+						   "DocumentOI":"0.00"
+						}
+					 }
+				  },
+				  {
+					 "Payment":{
+						"@attributes":{
+						   "mode":"Save"
+						},
+						"PaymentFields":{
+						   "@attributes":{
+							  "mode":"Save"
+						   },
+						   "DocumentNumber":"8016",
+						   "PaymentCode":"Z",
+						   "Currency":"CHF",
+						   "PaymentAmount":"1387.80",
+						   "DocumentAmount":"1387.80",
+						   "DocumentOI":"0.00"
+						}
+					 }
+				  }
+			   ]
+			}
 		 }';
-		//  echo $jsonString;
-		$json= json_decode($jsonString, true);
-		function array2xml($json, $xml = false){
-			if($xml === false){
-				$xml = new SimpleXMLElement('<AbaConnectContainer/>');
-			}
-			foreach($json as $key => $value){
-				if(is_array($value)){
-					array2xml($value, $xml->addChild($key));
-				}else{
-					$xml->addChild($key, $value);
+			$json= json_decode($jsonString, true);
+		 	// print_r ($json);
+			 function array2xml($json, $xml = false){
+				if($xml === false){
+					$xml = new SimpleXMLElement('<?xml version="1.0"?><AbaConnectContainer></AbaConnectContainer>');
+				
 				}
+				foreach($json as $key => $value){
+					if(is_array($value)){
+						array2xml($value, $xml->addChild($key));
+					}else{
+						$xml->addChild($key, $value);
+					}
+				}
+				return $xml->asXML();
 			}
-			return $xml->asXML();
-		}
-		
-		
-		header('Content-type: text/xml');
-		print array2xml($json);
-        return $json;
+			
+			header('Content-type: text/xml');
+			print array2xml($json);
+			return $json;
+			
         
 	
 
