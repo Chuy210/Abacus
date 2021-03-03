@@ -56,9 +56,10 @@ $route['404_override'] = '';
 $route['TEST'] = 'AbacusController/TEST';
 $route['TEST2'] = 'AbacusController/TEST2';
 $route['TEST3'] = 'AbacusController/TEST3';
+$route['TEST4'] = 'AbacusController/TEST4';
 
 $route['get_infoZoho_Crm']['POST'] = 'AccountsController/get_infoZoho_Crm';
-
+$route['get_invoicesBooks'] = 'InvoicesController/get_invoicesBooks';
 // $route['GetPatients']['GET'] = 'KareoController/GetPatients';
 // $route['GetAppointments']['GET'] = 'KareoController/GetAppointments';
 // $route['CreateAppointment']['POST'] = 'KareoController/CreateAppointment';
