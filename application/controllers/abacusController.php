@@ -303,71 +303,50 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 
 
 
-        $invoice_id="107386000024425251";
-        $ach_payment_initiated=false;
-        $zcrm_potential_id="";
-        $zcrm_potential_name="";
-        $customer_name="Test lUIS";
-        $customer_id="10738600002435391";
-        $company_name="";
-        $status="draft";
-        $color_code="";
-        $current_sub_status_id="";
-        $current_sub_status="draft";
-        $invoice_number="INV-001529";
-        $reference_number="";
-        $date="2021-03-02";
-        $due_date="2021-03-02";
-        $due_days="";
-        $currency_id="107386000000032071";
-        $schedule_time="";
-        $email="lgarcia@quickapps.mx";
-        $currency_code="CHF";
-        $currency_symbol="CHF";
-        $template_type="custom";
-        $no_of_copies=1;
-        $show_no_of_copies=true;
-        $is_viewed_by_client=false;
-        $has_attachment=false;
-        $client_viewed_time="";
-        $project_name="";
+        $TaskCount="100";
+        $Task="100";
+        $Parameter="100";
+        $Application="100";
+        $Id="100";
+        $MapId="100";
+        $Version="100";
+
+        $Transaction="100";
+        $Payment="100";
+        $PaymentFields="100";
+        $DocumentNumber="100";
+        $PaymentCode="100";
+        $Currency="100";
+        $PaymentAmount="100";
+        $DocumentAmount="100";
+        $DocumentOI="100";
 
 		// $json= json_decode($jsonString, true);
         $json = array (
-            'RequestHeader' => [
-                "invoice_id"=>$invoice_id,
-                "ach_payment_initiated"=>$ach_payment_initiated,
-                "zcrm_potential_id"=>$zcrm_potential_id,
-                "zcrm_potential_name"=>$zcrm_potential_name,
-                "customer_name"=>$customer_name,
-                "customer_id"=>$customer_id,
-                "company_name"=>$company_name,
-                "status"=>$status,
-                "color_code"=>$color_code,
-                "current_sub_status_id"=>$current_sub_status_id,
-                "current_sub_status"=>$current_sub_status,
-                "invoice_number"=>$invoice_number,
-                "reference_number"=>$reference_number,
-                "date"=>$date,
-                "due_date"=>$due_date,
-                "due_days"=>$due_days,
-                "currency_id"=>$currency_id,
-                "schedule_time"=>$schedule_time,
-                "email"=>$email,
-                "currency_code"=>$currency_code,
-                "currency_symbol"=>$currency_symbol,
-                "template_type"=>$template_type,
-                "no_of_copies"=>$no_of_copies,
-                "show_no_of_copies"=>$show_no_of_copies,
-                "is_viewed_by_client"=>$is_viewed_by_client,
-                "has_attachment"=>$has_attachment,
-                "client_viewed_time"=>$client_viewed_time,
-                "project_name"=>$project_name
-                ]
+            'AbaConnectContainer' => [
+                "TaskCount"=>$TaskCount,
+                "Task"=> [
+                "Parameter"=>[
+                "Application"=>$Application,
+                "Id"=>$Id,
+                "MapId"=>$MapId,
+                "Version"=>$Version],
+                "Transaction"=> [
+                "Payment"=>[
+                "PaymentFields"=> [
+                "DocumentNumber"=>$DocumentNumber,
+                "PaymentCode"=>$PaymentCode,
+                "Currency"=>$Currency,
+                "PaymentAmount"=>$PaymentAmount,
+                "DocumentAmount"=>$DocumentAmount,
+                "DocumentOI"=>$DocumentOI
+				    ]
+			    ]
+			]
+		]
+    ]
         );
-        // echo json_encode($request) . '<br />';
-        // echo '<br />';
-    
+		
         $params = array('json' => $json);
         
 
