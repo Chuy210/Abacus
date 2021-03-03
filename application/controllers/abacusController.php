@@ -346,13 +346,13 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 		]
     ]
         );
-		
+
         $params = array('json' => $json);
         
 
 	    function array2xml($json, $xml = false){
 			if($xml === false){
-				$xml = new SimpleXMLElement('<?xml version="1.0"?><AbaConnectContainer></AbaConnectContainer>');
+				$xml = new SimpleXMLElement('<AbaConnectContainer/>');
 			
 			}
 			foreach($json as $key => $value){
