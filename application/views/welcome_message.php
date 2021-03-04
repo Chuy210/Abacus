@@ -68,9 +68,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
+
+
+
+    
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
+
+	    <p> DEBUGGIN CONTROLLER</p>
+		<code>application/controllers/AccountsController.php</code>
+        <p id="test"></p>
+		<button id="run">RUN</button>
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>
@@ -85,5 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
 
+<script src="./src/javascript/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+        <AbaConnectContainer>
+          <TaskCount>1</TaskCount>
+          <Task>
+            <Parameter>
+              <Application>DEBI</Application>
+              <Id>Kunden</Id>
+              <MapId>AbaDefault</MapId>
+              <Version>2019.00</Version>
+            </Parameter><Transaction id="1">
+                   <Customer mode="SAVE">
+                     <CodeName>TEST1111112223333 DSADSF ACC</CodeName>
+                     <CustomerNumber>99999</CustomerNumber>
+                     <PaymentTermNumber>1</PaymentTermNumber>
+                     <Division>0</Division>
+                     <AddressData mode="SAVE">
+                       <AddressNumber>test1 Juan</AddressNumber>
+                       <CodeName>TEST1111112223333 DSADSF ACC</CodeName>
+                       <Name>test1 Juan</Name>
+                       <FirstName>test1 Juan</FirstName>
+                       <AdditionalLine></AdditionalLine>
+                       <Line1></Line1>
+                       <Line2/>
+                       <Line3/>
+                       <Line4/>
+                       <Country></Country>
+                       <ZIP>4444444</ZIP>
+                       <City>dsadsad</City>
+                       <Phone1></Phone1>
+                       <Phone2></Phone2>
+                       <Fax>9999999<Fax/>
+                       <Mobile>88889888<Mobile/>
+                       <SalutationNumber>3</SalutationNumber>
+                       <SalutationName/>
+                       <Title/>
+                       <IndustryCode>3</IndustryCode>
+                       <Text/>
+                       </Website>
+                       <Email>test1Juan@mail.com</Email>
+                       <Language></Language>
+                       <SubjectType>2</SubjectType>
+                       <HouseNumber>26</HouseNumber>
+                       <Street>fdsfdsf</Street>
+                     </AddressData>
+                     <CurrencyData mode="SAVE">
+                       <Currency>CHF</Currency>
+                       <TaxCode/>
+                       <CurrencyRisk>0</CurrencyRisk>
+                       <CurrencyLimitAmount>0</CurrencyLimitAmount>
+                       <PaymentOrderESRProcedure>1</PaymentOrderESRProcedure>
+                       <PaymentOrderIPIProcedure>0</PaymentOrderIPIProcedure>
+                       <StandardProcedure>0</StandardProcedure>
+                     </CurrencyData>
+                   </Customer>
+                 </Transaction>
+            <Transaction id="2">
+                   <Customer mode="SAVE">
+                     <CodeName>TEST ACCOUNT JL</CodeName>
+                     <CustomerNumber>0</CustomerNumber>
+                     <PaymentTermNumber>1</PaymentTermNumber>
+                     <Division>0</Division>
+                     <AddressData mode="SAVE">
+                       <AddressNumber></AddressNumber>
+                       <CodeName>TEST ACCOUNT JL</CodeName>
+                       <Name></Name>
+                       <FirstName></FirstName>
+                       <AdditionalLine></AdditionalLine>
+                       <Line1></Line1>
+                       <Line2/>
+                       <Line3/>
+                       <Line4/>
+                       <Country></Country>
+                       <ZIP></ZIP>
+                       <City></City>
+                       <Phone1></Phone1>
+                       <Phone2></Phone2>
+                       <Fax><Fax/>
+                       <Mobile><Mobile/>
+                       <SalutationNumber>3</SalutationNumber>
+                       <SalutationName><SalutationName/>
+                       <Title/>
+                       <IndustryCode>3</IndustryCode>
+                       <Text/>
+                       <Website></Website>
+                       <Email></Email>
+                       <Language></Language>
+                       <SubjectType>2</SubjectType>
+                       <HouseNumber>26</HouseNumber>
+                       <Street></Street>
+                     </AddressData>
+                     <CurrencyData mode="SAVE">
+                       <Currency>CHF</Currency>
+                       <TaxCode/>
+                       <CurrencyRisk>0</CurrencyRisk>
+                       <CurrencyLimitAmount>0</CurrencyLimitAmount>
+                       <PaymentOrderESRProcedure>1</PaymentOrderESRProcedure>
+                       <PaymentOrderIPIProcedure>0</PaymentOrderIPIProcedure>
+                       <StandardProcedure>0</StandardProcedure>
+                     </CurrencyData>
+                   </Customer>
+                 </Transaction>
+            </Task>
+             </AbaConnectContainer>

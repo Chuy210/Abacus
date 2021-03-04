@@ -26,54 +26,64 @@ class AbacusController extends CI_Controller {
 	}
     public function TEST() {
 
-$abacusXml='<?xml version="1.0" encoding="utf-8"?>
-		<AbaConnectContainer>
-		  <TaskCount>1</TaskCount>
-		  <Task>
-			<Parameter>
-			  <Application>DEBI</Application>
-			  <Id>Zahlungen</Id>
-			  <MapId>fidevision</MapId>
-			  <Version>2020.00</Version>
-			</Parameter>
-			<Transaction>
-			  <Payment mode="Save">
-				<PaymentFields mode="Save">
-				  <DocumentNumber>8014</DocumentNumber>
-				  <PaymentCode>Z</PaymentCode>
-				  <Currency>CHF</Currency>
-				  <PaymentAmount>114404.35</PaymentAmount>
-				  <DocumentAmount>114404.35</DocumentAmount>
-				  <DocumentOI>0.00</DocumentOI>
-				</PaymentFields>
-			  </Payment>
-			</Transaction>
-			<Transaction>
-			  <Payment mode="Save">
-				<PaymentFields mode="Save">
-				  <DocumentNumber>8015</DocumentNumber>
-				  <PaymentCode>Z</PaymentCode>
-				  <Currency>CHF</Currency>
-				  <PaymentAmount>730.20</PaymentAmount>
-				  <DocumentAmount>730.20</DocumentAmount>
-				  <DocumentOI>0.00</DocumentOI>
-				</PaymentFields>
-			  </Payment>
-			</Transaction>
-			<Transaction>
-			  <Payment mode="Save">
-				<PaymentFields mode="Save">
-				  <DocumentNumber>8016</DocumentNumber>
-				  <PaymentCode>Z</PaymentCode>
-				  <Currency>CHF</Currency>
-				  <PaymentAmount>1387.80</PaymentAmount>
-				  <DocumentAmount>1387.80</DocumentAmount>
-				  <DocumentOI>0.00</DocumentOI>
-				</PaymentFields>
-			  </Payment>
-			</Transaction>
-		  </Task>
-		</AbaConnectContainer>';
+$abacusXml='<?xml version="1.0" encoding="UTF-8"?>
+<AbaConnectContainer>
+  <TaskCount>1</TaskCount>
+  <Task>
+    <Parameter>
+      <Application>DEBI</Application>
+      <Id>Kunden</Id>
+      <MapId>AbaDefault</MapId>
+      <Version>2019.00</Version>
+    </Parameter>
+    <Transaction id="1">
+      <Customer mode="SAVE">
+        <CodeName>AMINA AG</CodeName>
+        <CustomerNumber>2</CustomerNumber>
+        <PaymentTermNumber>1</PaymentTermNumber>
+        <Division>0</Division>
+        <AddressData mode="SAVE">
+          <AddressNumber>2</AddressNumber>
+          <CodeName>AMINA AG</CodeName>
+          <Name>Amina AG</Name>
+          <FirstName/>
+          <AdditionalLine>Informatik, Software</AdditionalLine>
+          <Line1>Bundesgasse 26</Line1>
+          <Line2/>
+          <Line3/>
+          <Line4/>
+          <Country>CH</Country>
+          <ZIP>3000</ZIP>
+          <City>Bern</City>
+          <Phone1>+41 31 225 45 22</Phone1>
+          <Phone2/>
+          <Fax/>
+          <Mobile/>
+          <SalutationNumber>3</SalutationNumber>
+          <SalutationName/>
+          <Title/>
+          <IndustryCode>3</IndustryCode>
+          <Text/>
+          <Website>www.aminabeispiel.ch</Website>
+          <Email>info@aminabeispiel.ch</Email>
+          <Language>de</Language>
+          <SubjectType>2</SubjectType>
+          <HouseNumber>26</HouseNumber>
+          <Street>Bundesgasse</Street>
+        </AddressData>
+        <CurrencyData mode="SAVE">
+          <Currency>CHF</Currency>
+          <TaxCode/>
+          <CurrencyRisk>0</CurrencyRisk>
+          <CurrencyLimitAmount>0</CurrencyLimitAmount>
+          <PaymentOrderESRProcedure>1</PaymentOrderESRProcedure>
+          <PaymentOrderIPIProcedure>0</PaymentOrderIPIProcedure>
+          <StandardProcedure>0</StandardProcedure>
+        </CurrencyData>
+      </Customer>
+    </Transaction>
+  </Task>
+</AbaConnectContainer>';
 
 	$abacusXmls = simplexml_load_string($abacusXml);
 	$json2 = json_encode($abacusXmls);	
@@ -166,6 +176,8 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 	
 
     }
+
+
 	public function TEST3() {
         $jsonString='{
 			"TaskCount":"1",
@@ -234,6 +246,7 @@ $abacusXml='<?xml version="1.0" encoding="utf-8"?>
 			   ]
 			}
 		 }';
+		
 			$json= json_decode($jsonString, true);
 		 	// print_r ($json);
 			 function array2xml($json, $xml = false){

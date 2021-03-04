@@ -58,6 +58,11 @@ $route['TEST2'] = 'AbacusController/TEST2';
 $route['TEST3'] = 'AbacusController/TEST3';
 
 $route['get_infoZoho_Crm']['POST'] = 'AccountsController/get_infoZoho_Crm';
+<<<<<<< Updated upstream
+=======
+$route['send_infoZoho_Crm']['POST'] = 'AccountsController/send_infoZohoCRM';
+$route['connecton_FTP']['POST'] = 'ConnectionFTPController/getFtpConnection';
+>>>>>>> Stashed changes
 
 // $route['GetPatients']['GET'] = 'KareoController/GetPatients';
 // $route['GetAppointments']['GET'] = 'KareoController/GetAppointments';
